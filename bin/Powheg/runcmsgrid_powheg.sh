@@ -88,8 +88,9 @@ if [[ -e ${myDir} ]]; then
   mv cmsgrid_final.lhe old_cmsgrid_final.lhe
 fi
 
-export LD_LIBRARY_PATH=`pwd`/lib/:`pwd`/lib64/:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=`pwd`/lib/:`pwd`/lib64/:`pwd`/obj-gfortran/proclib/:${LD_LIBRARY_PATH}
 mkdir ${myDir}; cd ${myDir} ;  
+export PYTHONPATH=.:${PYTHONPATH}
 
 # force the f77 compiler to be the CMS defined one
 #ln -s `which gfortran` f77
@@ -128,6 +129,12 @@ if [[ -e ${WORKDIR}/DYNNLO_mur1_muf1_3D.top ]]; then
     ln -s ${WORKDIR}/DYNNLO*.top .
     ln -s ${WORKDIR}/MINLO*.top .
     ln -s ${WORKDIR}/list*.txt .
+fi
+### For the ggHH process
+if [[ -e ${WORKDIR}/Virt_full_cHHH_0.0.grid ]]; then
+    ln -s ${WORKDIR}/Virt_full_cHHH_* .
+    ln -s ${WORKDIR}/creategrid.py .
+    cp -p ${WORKDIR}/events.cdf .
 fi
 
 if [[ ! -e ${card} ]]; then
@@ -230,3 +237,4 @@ cp ${file}_final.lhe ${WORKDIR}/.
 echo "Output ready with ${file}_final.lhe at $WORKDIR"
 echo "End of job on " `date`
 exit 0;
+
