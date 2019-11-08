@@ -52,5 +52,5 @@ for dct["mass"], dct["width"], dct["hfact"] in parameters:
   else:
     dct.update(ncall1=550000, itmx1=7, ncall2=75000, foldcsi=2, foldy=5, foldphi=2)
 
-  with open("gg_H_ZZ_quark-mass-effects_NNPDF31_13TeV_M{}.input".format(dct["mass"]), "w") as f:
+  with open("gg_H_ZZ_quark-mass-effects_NNPDF30_13TeV_M{}.input".format(dct["mass"]), "w") as f:
     f.write(template.format(**dct))
