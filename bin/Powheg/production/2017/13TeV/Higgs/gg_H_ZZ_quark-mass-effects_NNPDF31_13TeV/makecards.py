@@ -48,9 +48,9 @@ with open("gg_H_ZZ_quark-mass-effects_NNPDF31_13TeV_template.input") as f:
 dct = {}
 
 for dct["mass"], dct["width"], dct["hfact"] in parameters:
-  if isinstance(mass, int):
+  if isinstance(dct["mass"], int):
     with open("gg_H_ZZ_quark-mass-effects_NNPDF31_13TeV_M{}.input".format(dct["mass"]), "w") as f:
       f.write(template.format(**dct))
-  if not isinstance(mass, int):
-    with open("gg_H_ZZ_quark-mass-effects_NNPDF31_13TeV_M{}.input".format(dct["mass"]).replace(".", "p"), "w") as f:
+  if not isinstance(dct["mass"], int):
+    with open("gg_H_ZZ_quark-mass-effects_NNPDF31_13TeV_M{}.input".format(dct["mass"]).replace(".", "p", 1), "w") as f:
       f.write(template.format(**dct))
