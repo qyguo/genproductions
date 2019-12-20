@@ -70,7 +70,7 @@ hdecaymode -1   ! -1 no decay
                 ! 12  gamma gamma
 
 complexpolescheme 1 ! switch on Complex Pole scheme
-masswindow 999d0
+masswindow 9999d0
 
 #iupperisr 1 ! (default 1) choice of ISR upper bounding functional form 
 #iupperfsr 2 ! (default 2) choice of FSR upper bounding functional form 
